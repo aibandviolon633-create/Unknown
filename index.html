@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forever Us ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    color:white;
+    text-align:center;
+}
+
+/* Hero Section */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:55px;
+}
+
+.hero p{
+    font-size:22px;
+    max-width:600px;
+}
+
+/* Romantic Button */
+button{
+    background:white;
+    color:#ff4f81;
+    border:none;
+    padding:15px 30px;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* Sections */
+.section{
+    padding:50px 20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.2);
+    margin:20px auto;
+    padding:25px;
+    border-radius:20px;
+    width:90%;
+    max-width:700px;
+}
+
+/* Gallery */
+.gallery{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.photo{
+    width:220px;
+    height:250px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Love Letter */
+#letter{
+    display:none;
+    margin-top:20px;
+    font-size:20px;
+}
+
+/* Floating Hearts */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:25px;
+    animation: rise 7s linear infinite;
+    opacity:0.7;
+}
+
+@keyframes rise{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-110vh);
+    }
+}
+.vid{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Hero -->
+<div class="hero">
+    <h1>❤️ Forever Us ❤️</h1>
+    <p>
+        Every smile, every memory,
+        every moment with you matters.
+        Thank you for being part of my life 💖
+    </p>
+
+    <button onclick="scrollDown()">
+        Our Story ✨
+    </button>
+    <br>
+
+</div>
+<div class="vid">
+    
+    <video src="vid1 (1).mp4" controls autoplay height="150" width="250"></video>
+    <br>
+    <video src="vid1 (2).mp4" controls autoplay height="175" width="275"></video>
+    <br>
+    <video src="vid1 (3).mp4" controls autoplay height="200" width="275"></video>
+</div>
+
+<!-- Counter -->
+<div class="section">
+    <div class="card">
+        <h2>⏳ Time Together</h2>
+        <h1 id="counter"></h1>
+    </div>
+</div>
+
+<!-- Memories -->
+<div class="section">
+    <div class="card">
+        <h2>📸 Favorite Memories</h2>
+
+        <div class="gallery">
+            <div class="photo">
+                <img src="couple 1.jpg">
+            </div>
+
+            <div class="photo">
+                <img src="couple 2.jpg">
+            </div>
+
+            <div class="photo">
+                <img src="couple 3.jpg">
+            </div>
+        </div>
+
+        <p>Great memories with you ❤️</p>
+    </div>
+</div>
+
+<!-- Love Letter -->
+<div class="section">
+    <div class="card">
+        <h2>💌 Secret Letter</h2>
+
+        <button onclick="showLetter()">
+            Open Letter ❤️
+        </button>
+
+        <p id="letter">
+            Hey love, I just want you to know that no matter what happens, my feelings for you stay real and strong. Life can get difficult sometimes, and we may face challenges, misunderstandings, or hard days, but I still choose you. I care about you deeply and appreciate everything about you, even the imperfect moments. Through the good times and the struggles, I want you to know I’ll always try my best to be here and support us. You mean so much to me, and I never want you to forget how loved you are. No matter where life takes us, I’ll always value the memories, laughs, and moments we share. I believe love grows stronger when people keep choosing each other despite the hard days. Thank you for being part of my life, and I hope we continue growing together. No matter what happens, a part of my heart will always care for you.
+            No matter where life takes us,
+            I’ll always appreciate the memories,
+            laughter, and moments we share.
+            Happy Monthsary ❤️
+        </p>
+    </div>
+</div>
+
+<script>
+// Relationship Date
+let startDate = new Date("2025-01-12");
+
+function updateCounter(){
+    let today = new Date();
+    let difference = today - startDate;
+
+    let days = Math.floor(difference / (1000*60*60*24));
+    let months = Math.floor(days / 30);
+
+    document.getElementById("counter").innerHTML =
+        " 8 months and 12 days ❤️";
+}
+
+updateCounter();
+
+// Show Letter
+function showLetter(){
+    document.getElementById("letter").style.display = "block";
+}
+
+// Scroll Button
+function scrollDown(){
+    window.scrollTo({
+        top: window.innerHeight,
+        behavior: "smooth"
+    });
+}
+
+// Floating hearts
+function createHeart(){
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 7000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
